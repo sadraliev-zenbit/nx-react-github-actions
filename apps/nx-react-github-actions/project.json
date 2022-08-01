@@ -1,0 +1,85 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/nx-react-github-actions/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/nx-react-github-actions",
+        "index": "apps/nx-react-github-actions/src/index.html",
+        "baseHref": "/",
+        "main": "apps/nx-react-github-actions/src/main.tsx",
+        "polyfills": "apps/nx-react-github-actions/src/polyfills.ts",
+        "tsConfig": "apps/nx-react-github-actions/tsconfig.app.json",
+        "assets": [
+          "apps/nx-react-github-actions/src/favicon.ico",
+          "apps/nx-react-github-actions/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/nx-react-github-actions/src/environments/environment.ts",
+              "with": "apps/nx-react-github-actions/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "nx-react-github-actions:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nx-react-github-actions:build:development"
+        },
+        "production": {
+          "buildTarget": "nx-react-github-actions:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/nx-react-github-actions/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/nx-react-github-actions"],
+      "options": {
+        "jestConfig": "apps/nx-react-github-actions/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

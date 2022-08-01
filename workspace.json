@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "nx-react-github-actions": "apps/nx-react-github-actions",
+    "nx-react-github-actions-e2e": "apps/nx-react-github-actions-e2e"
+  }
+}
