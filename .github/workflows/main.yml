@@ -29,6 +29,9 @@ jobs:
      - run: pwd
      - run: ls -la ./build/
      - run: pwd
+     - run: echo "build done"
+     - run: name="Misha"
+     - run: echo "hello" $name
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
