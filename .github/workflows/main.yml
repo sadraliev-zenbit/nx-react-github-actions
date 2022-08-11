@@ -23,13 +23,11 @@ jobs:
      - name: Build static file
        run: npm run build
      - run: pwd
-     - run: mv ./dist/ ./build
+     - run: mkdir build
+     - run: cp -R dist/. build/
      - run: ls -la
      - run: pwd
-     - run: cd ./build
-     - run: ls -la
-     - run: pwd
-     - run: cd ../
+     - run: ls -la ./build/
      - run: pwd
 
      - name: Configure AWS Credentials
