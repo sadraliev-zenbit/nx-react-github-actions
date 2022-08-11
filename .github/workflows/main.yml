@@ -23,6 +23,10 @@ jobs:
      - name: Build static file
        run: npm run build
      - run: mv ./dist/ ./build
+     - run: ls -la
+     - run: cd ./build
+     - run: ls -la
+     - run: cd -
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
