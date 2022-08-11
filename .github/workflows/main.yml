@@ -9,6 +9,8 @@ jobs:
  Deploy:
    runs-on: ubuntu-latest
    steps:
+     - run: ls -l
+     
      - name: Checkout
        uses: actions/checkout@v2
 
@@ -20,6 +22,7 @@ jobs:
 
      - name: Build static file
        run: npm run build
+     - run: ls -l
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
